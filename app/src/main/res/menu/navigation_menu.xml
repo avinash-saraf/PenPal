@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Profile"
+        android:icon="@drawable/profile"/>
+    <item
+    android:id="@+id/nav_home"
+        android:title="Home"
+        android:icon="@drawable/home"/>
+    <item
+        android:id="@+id/nav_find_pen_pal"
+        android:title="Find PenPal"
+        android:icon="@drawable/find_people"/>
+    <item
+        android:id="@+id/nav_pen_pal"
+        android:title="PenPals"
+        android:icon="@drawable/friends"/>
+
+
+
+
+</menu>

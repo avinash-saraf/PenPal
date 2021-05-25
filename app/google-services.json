@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1040709963854",
+    "firebase_url": "https://penpal-8746a.firebaseio.com",
+    "project_id": "penpal-8746a",
+    "storage_bucket": "penpal-8746a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040709963854:android:422d65606262a1ef8b331f",
+        "android_client_info": {
+          "package_name": "com.example.penpal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1040709963854-l3rmgdnrnrtshq8pvqkn682t3lvndjbe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.penpal",
+            "certificate_hash": "f5ee3995ee0483b7c93596c1b6cc55f5c8b39d9a"
+          }
+        },
+        {
+          "client_id": "1040709963854-a1jr4o815v465th89c0ndqr6q7l9avg4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw8vclspHDCV2Zu1m9rBlSRVykUgGz1VU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1040709963854-a1jr4o815v465th89c0ndqr6q7l9avg4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

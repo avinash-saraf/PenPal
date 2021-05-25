@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".welcome.SetupActivity">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/regular"
+        android:text="Complete your account details"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        app:autoSizeTextType="uniform"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.0453"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.173"
+        app:layout_constraintWidth_default="wrap"
+        app:layout_constraintWidth_percent="0.819" />
+
+
+
+    <EditText
+        android:id="@+id/setup_displayname"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/inputs"
+        android:gravity="center_vertical"
+        android:paddingStart="30dp"
+        android:hint="Display Name*"
+        android:fontFamily="@font/regular"
+        android:textSize="20sp"
+        app:autoSizeTextType="uniform"
+        android:textColor="@color/input_text"
+        android:textColorHint="@color/input_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.09375"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.3156"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.8194" />
+
+    <EditText
+        android:id="@+id/setup_country_name"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/setup_displayname"
+        android:background="@drawable/inputs"
+        android:ems="10"
+        android:hint="Country"
+        android:visibility="gone"
+        app:autoSizeTextType="uniform"
+        android:inputType="textMultiLine"
+        android:padding="3dp"
+        android:textAlignment="center"
+        android:textColorHint="#91377684"
+        android:textSize="18sp"
+        android:fontFamily="@font/light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.60"
+        app:layout_constraintHeight_percent="0.0625"
+        app:layout_constraintWidth_percent="0.719"/>
+
+    <Spinner
+        android:id="@+id/spinner_country_name"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/inputs"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.09375"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.44281"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.8194" />
+
+    <EditText
+        android:id="@+id/setup_status"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/inputs"
+        android:gravity="center_vertical"
+        android:paddingStart="30dp"
+        android:hint="Status: Hello! I'm using PenPal"
+        android:fontFamily="@font/regular"
+        android:textSize="20sp"
+        app:autoSizeTextType="uniform"
+        android:textColor="@color/input_text"
+        android:textColorHint="@color/input_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.09375"
+        app:layout_constraintWidth_percent="0.8194"
+        app:layout_constraintVertical_bias="0.57002"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/setup_information_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/regular"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        app:layout_constraintHeight_percent="0.075"
+        app:layout_constraintWidth_percent="0.81944"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7484"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
