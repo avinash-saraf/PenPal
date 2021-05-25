@@ -1,2 +1,2 @@
 # PenPal
-A social media chat app where people of similar interests and hobbies can meet anonymously.
+A social media chat app where people having similar interests and hobbies can meet anonymously.
