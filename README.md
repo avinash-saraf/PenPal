@@ -6,7 +6,7 @@ Some features have not been implemented yet. For more details on those features,
 
 ## Features
 - A user can sign-up/login using email adress or a mobile number.
-- A user can select his interests/hobbies from a comprehensive list of the same. The user's chosen interests can be edited easily.
+- A user can select his interests/hobbies from a comprehensive list of the same, by swiping right to select the interests and swiping left to deselect the interests. The user's chosen interests can be edited easily.
 - A user can connect and private chat with other users who share his interests/hobbies.
 - A user can accept or ignore an incoming chat request.
 - A user can private chat by sending text messages and images.
