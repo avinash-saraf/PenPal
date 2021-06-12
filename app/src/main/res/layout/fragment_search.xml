@@ -1,24 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="#33808080"
 android:id="@+id/search_container">
 
-    <FrameLayout
-        android:id="@+id/main_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/regular"
+        android:text="Meet New People Who Share Your Interests"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        app:autoSizeTextType="uniform"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.373"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintHeight_percent="0.1453"
+        app:layout_constraintWidth_percent="0.588"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/all_users_post_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#33808080"/>
+    <Button
+        android:id="@+id/find_penpal_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/regular"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Find PenPal"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        app:layout_constraintHeight_percent="0.075"
+        app:layout_constraintWidth_percent="0.81944"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57"
+        app:layout_constraintHorizontal_bias="0.5"/>
 
-    </FrameLayout>
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

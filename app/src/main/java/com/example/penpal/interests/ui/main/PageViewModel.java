@@ -34,10 +34,11 @@ public class PageViewModel extends ViewModel {
         @Override
         public ArrayList<Interest> apply(HashMap<String, Object> inputMap) {
 
-            ArrayList<String> selectedInterests = (ArrayList<String>) inputMap.get("selectedInterests");
+            /*ArrayList<String> selectedInterests = (ArrayList<String>) inputMap.get("selectedInterests");
             if(selectedInterests.isEmpty()){
                 Log.println(Log.ASSERT, "selected Interests List", "isEmpty");
-            }
+            }*/
+
             // init
             ArrayList<Interest> interestsList = new ArrayList<>();
             Context context = (Context) inputMap.get("context");
@@ -54,9 +55,10 @@ public class PageViewModel extends ViewModel {
                     //if !null add hobby to list
                     hobbyImage = br2.readLine();
                     Interest currentInterest = new Interest(hobbyImage, hobby, input);
-                    if(selectedInterests.contains(hobby)){
+
+                 /*   if(selectedInterests.contains(hobby)){
                         currentInterest.setmInterestClicked(true);
-                    }
+                    }*/
                     interestsList.add(currentInterest);
                 }
             } catch (IOException e){

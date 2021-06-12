@@ -1,17 +1,25 @@
 package com.example.penpal;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.penpal.interests.model.Interest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,11 +35,12 @@ public class ProfileActivity extends AppCompatActivity {
 
     private String recieverUserId,senderUserId, currentState;
 
-    private CircleImageView profilePic;
     private TextView userProfileName, userProfileStatus;
-    private Button sendMessageRequestButton, declineMessageRequestButton;
+    private Button sendMessageRequestButton, declineMessageRequestButton, viewInterestsButton;
 
-    private DatabaseReference userRef,chatRequestRef, contactsRef, notificationRef;
+    private ImageView displayPic;
+
+    private DatabaseReference userRef, chatRequestRef, contactsRef, notificationRef;
     private FirebaseAuth mAuth;
 
     @Override
@@ -45,18 +54,72 @@ public class ProfileActivity extends AppCompatActivity {
         contactsRef = FirebaseDatabase.getInstance().getReference().child("Contacts");
         notificationRef = FirebaseDatabase.getInstance().getReference().child("Notifications");
 
-
         recieverUserId = getIntent().getExtras().get("visit_user_id").toString();
         senderUserId = mAuth.getCurrentUser().getUid();
 
-        profilePic = findViewById(R.id.visit_profile_image);
         userProfileName = findViewById(R.id.visit_user_name);
         userProfileStatus = findViewById(R.id.visit_profile_status);
         sendMessageRequestButton = findViewById(R.id.send_message_request_button);
         declineMessageRequestButton = findViewById(R.id.decline_message_request_button);
+        viewInterestsButton = findViewById(R.id.profile_view_interests);
         currentState = "new";
 
+        displayPic = findViewById(R.id.profile_display_pic);
+
+        viewInterestsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewInterestsIntent = new Intent(ProfileActivity.this, ViewInterestsActivity.class);
+                viewInterestsIntent.putExtra("visit_user_id", recieverUserId);
+                startActivity(viewInterestsIntent);
+            }
+        });
+
         RetrieveUserInfo();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Context ctx = this;
+
+        userRef.child(recieverUserId).child("interests").limitToLast(1).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                if(snapshot.exists()){
+                    Interest interest = snapshot.getValue(Interest.class);
+                    String imageLink = interest.getmImageLink();
+
+                    Glide.with(ctx).load(imageLink).fitCenter().placeholder(R.drawable.profile_placeholder_image).into(displayPic);
+
+                }
+                else {
+                    Glide.with(ctx).load(R.drawable.profile_placeholder_image).centerCrop().placeholder(R.drawable.profile_placeholder_image).into(displayPic);
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     private void RetrieveUserInfo() {
@@ -68,7 +131,6 @@ public class ProfileActivity extends AppCompatActivity {
                     String userName = dataSnapshot.child("displayname").getValue().toString();
                     String userStatus = dataSnapshot.child("status").getValue().toString();
 
-                    Picasso.get().load(R.drawable.profile).into(profilePic);
                     userProfileName.setText(userName);
                     userProfileStatus.setText(userStatus);
 

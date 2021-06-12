@@ -4,20 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FindFriendsActivity">
+    tools:context=".ViewInterestsActivity">
 
-    <include
-        android:id="@+id/find_friends_toolbar"
-        layout="@layout/app_bar_layout" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/find_friends_recycler_list"
+        android:id="@+id/view_interests_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/find_friends_toolbar" />
-
+        android:layout_height="match_parent"
+        android:padding="2dp"
+        android:background="@android:color/darker_gray"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

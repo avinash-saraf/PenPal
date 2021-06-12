@@ -9,10 +9,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.penpal.interests.InterestsActivity;
+import com.example.penpal.welcome.SetupActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,16 +27,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    EditText userName, displayName, status;
-    Button updateAccountSettings;
+    private EditText country, displayName, status;
+    private Button updateAccountSettings, editInterests;
+
+    private Spinner countrySpinner;
+    private boolean isCountrySelected;
 
     private FirebaseAuth mAuth;
     private DatabaseReference userRef;
-    private String currentUserId;
+    private String currentUserId, selectedCountry;
     private ProgressDialog progressDialog;
 
     private Toolbar mToolbar;
@@ -46,10 +57,13 @@ public class SettingsActivity extends AppCompatActivity {
         currentUserId = mAuth.getCurrentUser().getUid();
         userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId);
 
-        userName = findViewById(R.id.settings_username);
+        countrySpinner = findViewById(R.id.settings_spinner_country_name);
+
+       // country = findViewById(R.id.settings_country);
         displayName = findViewById(R.id.settings_displayname);
         status = findViewById(R.id.settings_status);
         updateAccountSettings = findViewById(R.id.settings_update_button);
+        editInterests = findViewById(R.id.settings_edit_interests_button);
 
         mToolbar = findViewById(R.id.settings_toolbar);
         setSupportActionBar(mToolbar);
@@ -67,14 +81,57 @@ public class SettingsActivity extends AppCompatActivity {
                 UpdateAccountInformation();
             }
         });
+
+        editInterests.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent interestsActivity = new Intent(SettingsActivity.this, InterestsActivity.class);
+                startActivity(interestsActivity);
+            }
+        });
+
+        getCountryList();
+
+        countrySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedCountry = (String) parent.getItemAtPosition(position);
+                Toast.makeText(SettingsActivity.this, selectedCountry + " selected", Toast.LENGTH_SHORT).show();
+                isCountrySelected = true;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                isCountrySelected = false;
+            }
+        });
+    }
+
+    private void getCountryList(){
+        Locale[] locales = Locale.getAvailableLocales();
+        ArrayList<String> countries = new ArrayList<>();
+        String country;
+
+        for(Locale locale: locales){
+            country = locale.getDisplayCountry();
+            if(country.length() !=  0 && !countries.contains(country)){
+                countries.add(country);
+            }
+        }
+
+        Collections.sort(countries,String.CASE_INSENSITIVE_ORDER);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,countries);
+        countrySpinner.setAdapter(adapter);
+
     }
 
     private void UpdateAccountInformation() {
-        String username = userName.getText().toString();
+        //String countryname = country.getText().toString();
         String displayname = displayName.getText().toString();
         String statusInfo = status.getText().toString();
 
-        if(TextUtils.isEmpty(username)){
+        if(!isCountrySelected){
             Toast.makeText(SettingsActivity.this, "Please enter your name...", Toast.LENGTH_SHORT).show();
         } else if(TextUtils.isEmpty(displayname)){
             Toast.makeText(SettingsActivity.this, "Please enter your display name...", Toast.LENGTH_SHORT).show();
@@ -87,7 +144,7 @@ public class SettingsActivity extends AppCompatActivity {
             progressDialog.setCanceledOnTouchOutside(false);
 
             HashMap userMap = new HashMap();
-            userMap.put("name", username);
+            userMap.put("country", selectedCountry);
             userMap.put("displayname", displayname);
             userMap.put("status", statusInfo);
             userRef.updateChildren(userMap).addOnCompleteListener(new OnCompleteListener() {
@@ -119,9 +176,17 @@ public class SettingsActivity extends AppCompatActivity {
 
                     String retrievedDisplayName = dataSnapshot.child("displayname").getValue().toString();
                     String retrieveStatus = dataSnapshot.child("status").getValue().toString();
+                    String retrieveCountry = dataSnapshot.child("country").getValue().toString();
 
                     displayName.setHint(retrievedDisplayName);
                     status.setHint(retrieveStatus);
+
+                    ArrayAdapter myAdap = (ArrayAdapter) countrySpinner.getAdapter();
+
+                    int spinnerPosition = myAdap.getPosition(retrieveCountry);
+
+                    //set the default according to country name
+                    countrySpinner.setSelection(spinnerPosition);
 
 
                 } else {

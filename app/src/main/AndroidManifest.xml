@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.penpal">
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,10 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ViewInterestsActivity"
+            android:label="@string/title_activity_view_interests"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".interests.InterestsActivity"
             android:label="@string/title_activity_interests"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".welcome.CreateAccountMethodActivity" />
         <activity android:name=".welcome.SignInMethodActivity" />
         <activity android:name=".onboarding.OnboardingActivity" />
@@ -22,19 +28,21 @@
         <activity
             android:name=".FindFriendsActivity"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".welcome.PhoneLoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".GroupChatActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".welcome.PhoneLoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GroupChatActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SettingsActivity"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ChatActivity"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".welcome.RegisterActivity"
             android:screenOrientation="portrait" />
@@ -53,7 +61,7 @@
         <activity
             android:name=".welcome.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".HomeFragment" />
+        <activity android:name=".ChatsFragment" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />

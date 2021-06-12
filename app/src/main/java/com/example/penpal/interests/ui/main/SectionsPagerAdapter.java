@@ -1,18 +1,12 @@
 package com.example.penpal.interests.ui.main;
 
-import android.content.Context;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.penpal.HomeFragment;
-import com.example.penpal.R;
+import com.example.penpal.interests.SelectedInterestsFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -27,6 +21,9 @@ public class SectionsPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
+        if (position == 0){
+            return new SelectedInterestsFragment();
+        }
         return PlaceholderFragment.newInstance(position);
     }
 

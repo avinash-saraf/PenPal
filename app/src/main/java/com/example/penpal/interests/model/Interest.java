@@ -9,6 +9,8 @@ public class Interest {
     private String mInterestType;
     private boolean mInterestClicked;
 
+    public Interest(){}
+
     public Interest(String mImageLink, String mInterestName, String mInterestType){
         this.mImageLink = mImageLink;
         this.mInterestName = mInterestName;

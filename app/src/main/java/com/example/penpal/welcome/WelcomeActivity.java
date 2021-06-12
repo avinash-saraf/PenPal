@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import com.example.penpal.MainActivity;
 import com.example.penpal.R;
@@ -28,9 +29,14 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //intent to send user to signin method activity once SPLASH_TIME_OUT has passed
-                Intent onboardingIntent = new Intent(WelcomeActivity.this,SignInMethodActivity.class);
-                startActivity(onboardingIntent);
-                finish();
+
+                FirebaseUser firebaseUser = mAuth.getCurrentUser();
+
+                if (firebaseUser == null) {
+                    Intent onboardingIntent = new Intent(WelcomeActivity.this, SignInMethodActivity.class);
+                    startActivity(onboardingIntent);
+                    finish();
+                }
             }
         }, SPLASH_TIME_OUT);
 

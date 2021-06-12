@@ -69,7 +69,7 @@
         android:background="@drawable/inputs"
         android:gravity="center_vertical"
         android:paddingStart="30dp"
-        android:text="Gmail *"
+        android:text="Gmail"
         style="@style/buttonStyle"
         android:textAllCaps="false"
         android:fontFamily="@font/regular"
@@ -106,27 +106,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8194" />
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/regular"
-        android:gravity="center"
-        android:text="* Does not require registration"
-        android:textAllCaps="false"
-        android:textColor="@color/input_text"
-        android:textSize="16sp"
-        app:autoSizeMinTextSize="14sp"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintWidth_min="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.028125"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65"
-        app:layout_constrainedWidth="true"
-        app:layout_constraintWidth_percent="0.495" />
     <TextView
         android:id="@+id/signin_method_create_account"
         android:layout_width="0dp"

@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +25,7 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.concurrent.TimeUnit;
 
@@ -185,23 +186,9 @@ public class PhoneLoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             loadingBar.dismiss();
-                            String currentUserId = mAuth.getCurrentUser().getUid();
-                            String deviceToken = FirebaseInstanceId.getInstance().getToken();
+                            Toast.makeText(PhoneLoginActivity.this, "Congratulations, you are signed in successfully!", Toast.LENGTH_SHORT).show();
+                            SendUserToMainActivity();
 
-                            userRef.child(currentUserId).child("device_token")
-                                    .setValue(deviceToken)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if(task.isSuccessful()){
-                                                Toast.makeText(PhoneLoginActivity.this, "Congratulations, you are signed in successfully!", Toast.LENGTH_SHORT).show();
-                                                SendUserToMainActivity();
-                                            }
-                                        }
-                                    });
-
-
-                            // ...
                         } else {
                             String msg = task.getException().toString();
                             Toast.makeText(PhoneLoginActivity.this, "Error: " + msg, Toast.LENGTH_SHORT).show();
@@ -210,11 +197,47 @@ public class PhoneLoginActivity extends AppCompatActivity {
                 });
     }
 
+
+
     private void SendUserToMainActivity() {
         Intent mainIntent = new Intent(PhoneLoginActivity.this, MainActivity.class);
         startActivity(mainIntent);
         finish();
     }
 
+    /*
+     private void saveToken(){
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            //Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String deviceToken = task.getResult();
+
+                        String currentUserId = mAuth.getCurrentUser().getUid();
+
+                        //saves device token in firebase database
+                        userRef.child(currentUserId).child("device_token")
+                                .setValue(deviceToken)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(PhoneLoginActivity.this, "You are logged in Successfully!", Toast.LENGTH_SHORT).show();
+                                            loadingBar.dismiss();
+                                            SendUserToMainActivity();
+                                        }
+                                    }
+                                });
+
+                    }
+                });
+    }
+     */
 
 }

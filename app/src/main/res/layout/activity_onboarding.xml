@@ -15,14 +15,13 @@
         android:textSize="15sp"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-    
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/onboardingViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    
+        android:layout_height="match_parent" />
+
     <LinearLayout
         android:id="@+id/layoutOnboardingIndicators"
         android:layout_width="0dp"
@@ -34,7 +33,7 @@
         app:layout_constraintBottom_toBottomOf="@id/buttonOnboardingAction"
         app:layout_constraintEnd_toStartOf="@id/buttonOnboardingAction"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/buttonOnboardingAction"/>
+        app:layout_constraintTop_toTopOf="@id/buttonOnboardingAction" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -51,7 +51,6 @@ public class SetupActivity extends AppCompatActivity {
 
         status = findViewById(R.id.setup_status);
         displayName = findViewById(R.id.setup_displayname);
-        //countryName = findViewById(R.id.setup_country_name);
         saveInformationButton = findViewById(R.id.setup_information_button);
         countrySpinner = findViewById(R.id.spinner_country_name);
 

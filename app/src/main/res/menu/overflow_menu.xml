@@ -6,24 +6,12 @@
 
 
 
-    <item android:id="@+id/overflow_search" android:title="Search"
-        android:icon="@drawable/ic_person_black_24dp"
-        app:showAsAction="ifRoom"/>
-    <item android:id="@+id/overflow_create_group" android:title="Create Group"
+    <item android:id="@+id/overflow_setting" android:title="Profile"
         app:showAsAction="never"/>
+
     <item android:id="@+id/overflow_find_friends" android:title="Find Friends"
         app:showAsAction="never"/>
-    <item android:id="@+id/overflow_setting" android:title="Settings"
-        app:showAsAction="never"/>
-    <item android:id="@+id/overflow_more" android:title="More"
-        app:showAsAction="never">
-    <menu>
-    <item android:id="@+id/overflow_report" android:title="Report"
-        app:showAsAction="never"/>
-    <item android:id="@+id/overflow_feedback" android:title="Give Feedback"
-        app:showAsAction="never"/>
-    </menu>
-    </item>
+
     <item android:id="@+id/overflow_logout" android:title="Logout"
         app:showAsAction="never"/>
 

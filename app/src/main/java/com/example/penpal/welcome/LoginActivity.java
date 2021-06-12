@@ -32,7 +32,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -231,35 +232,22 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-
-                        String currentUserId = mAuth.getCurrentUser().getUid();
-                        String deviceToken = FirebaseInstanceId.getInstance().getToken(); //gets device token (useful to cloud notifications)
-
-                        //saves device token in firebase database
-                        usersRef.child(currentUserId).child("device_token")
-                                .setValue(deviceToken)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if(task.isSuccessful()){
-                                            Toast.makeText(LoginActivity.this, "You are logged in Successfully!", Toast.LENGTH_SHORT).show();
-                                            progressDialog.dismiss();
-                                            SendUserToMainActivity();
-                                        }
-                                    }
-                                });
-
+                        Toast.makeText(LoginActivity.this, "You are logged in Successfully!", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                        SendUserToMainActivity();
 
                     }
                     else {
                         String messageException = task.getException().getMessage();
-                        Toast.makeText(LoginActivity.this, "Error Occurred: " + messageException, Toast.LENGTH_SHORT);
+                        Toast.makeText(LoginActivity.this, "Error Occurred: " + messageException, Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
                     }
                 }
             });
         }
     }
+
+
 
     private void SendUserToMainActivity() {
 
@@ -281,4 +269,40 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(registerIntent);
 
     }
+
+    /*
+        private void saveToken(){
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            //Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String deviceToken = task.getResult();
+
+                        String currentUserId = mAuth.getCurrentUser().getUid();
+
+                        //saves device token in firebase database
+                        usersRef.child(currentUserId).child("device_token")
+                                .setValue(deviceToken)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(LoginActivity.this, "You are logged in Successfully!", Toast.LENGTH_SHORT).show();
+                                            progressDialog.dismiss();
+                                            SendUserToMainActivity();
+                                        }
+                                    }
+                                });
+
+                    }
+                });
+    }
+     */
+
 }

@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profile_activity"
     tools:context=".ProfileActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/visit_profile_image"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/profile"
+    <ImageView
+        android:id="@+id/profile_display_pic"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.325"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25000002" />
+        app:layout_constraintVertical_bias="0.0" />
+
 
     <TextView
         android:id="@+id/visit_user_name"
@@ -28,8 +29,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/visit_profile_image"
-        app:layout_constraintVertical_bias="0.060000002" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.385" />
 
     <TextView
         android:id="@+id/visit_profile_status"
@@ -41,52 +42,74 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/visit_profile_image"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+
+    <Button
+        android:id="@+id/profile_view_interests"
+        style="@style/buttonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/inputs"
+        android:fontFamily="@font/regular"
+        android:gravity="center"
+        android:paddingStart="8dp"
+        android:text="View Interests"
+        android:textAllCaps="false"
+        android:textColor="@color/darker_text"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.08375"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57002"
+        app:layout_constraintWidth_percent="0.5194" />
+
 
     <Button
         android:id="@+id/send_message_request_button"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/button"
         android:fontFamily="@font/regular"
-        android:padding="5dp"
+        android:gravity="center_horizontal|center_vertical"
         android:text="Chat"
         android:textAlignment="center"
-        android:textColor="#91377684"
-        android:textSize="18.5sp"
-        app:autoSizeTextType="uniform"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.053125"
+        app:layout_constraintHeight_percent="0.075"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/visit_profile_status"
-        app:layout_constraintVertical_bias="0.3"
-        app:layout_constraintWidth_percent="0.5472" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75"
+        app:layout_constraintWidth_percent="0.61944" />
 
     <Button
         android:id="@+id/decline_message_request_button"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/button"
         android:fontFamily="@font/regular"
-        android:padding="5dp"
+        android:gravity="center_horizontal|center_vertical"
         android:text="Cancel Chat Request"
         android:textAlignment="center"
-        android:textColor="#91377684"
-        android:textSize="18.5sp"
-        app:autoSizeTextType="uniform"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.053125"
+        app:layout_constraintHeight_percent="0.075"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/visit_profile_status"
-        app:layout_constraintVertical_bias="0.59000003"
-        app:layout_constraintWidth_percent="0.5472"
-        android:visibility="invisible"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87"
+        app:layout_constraintWidth_percent="0.61944" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

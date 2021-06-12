@@ -3,6 +3,7 @@ package com.example.penpal.interests.ui.main;
 import android.content.ClipData;
 import android.content.Context;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,7 +60,7 @@ public class PlaceholderFragment extends Fragment {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private String currentUser = mAuth.getCurrentUser().getUid();
     private DatabaseReference interestsRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUser).child("interests");
-    private final ArrayList<String> selectedInterests = new ArrayList<>();
+  //  private final ArrayList<String> selectedInterests = new ArrayList<>();
     //private boolean alreadyExists = false;
 
     public static PlaceholderFragment newInstance(int index) {
@@ -88,15 +89,17 @@ public class PlaceholderFragment extends Fragment {
         String type = interestsTypes.get(index);
 
         Context context = getContext();
-        HashMap<String, Object> hm = new HashMap<>();
+        final HashMap<String, Object> hm = new HashMap<>();
         hm.put("context", context);
         hm.put("type", type);
 
       //  Log.d(TAG, "onCreate: getSelectedInterests" + selectedInterests.get(0));
-        hm.put("selectedInterests", getSelectedInterests());
 
-        pageViewModel.setmMap(hm);
+       pageViewModel.setmMap(hm);
+
     }
+
+    /*
     private ArrayList<String> getSelectedInterests(){
         final ArrayList<String> selected = new ArrayList<>();
         interestsRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -106,6 +109,7 @@ public class PlaceholderFragment extends Fragment {
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
                     selected.add(dataSnapshot1.getKey());
                 }
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -113,7 +117,7 @@ public class PlaceholderFragment extends Fragment {
             }
         });
         return selected;
-    }
+    }*/
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,

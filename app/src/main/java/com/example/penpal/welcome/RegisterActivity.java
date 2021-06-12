@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -111,12 +111,6 @@ public class RegisterActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
 
-                        String currentUserId = mAuth.getCurrentUser().getUid();
-                        String deviceToken = FirebaseInstanceId.getInstance().getToken();
-
-                        rootRef.child("Users").child(currentUserId).child("device_token")
-                                .setValue(deviceToken);
-
                         Toast.makeText(RegisterActivity.this, "You Are Authenticated Successfully!", Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
                         final FirebaseUser user = mAuth.getCurrentUser();
@@ -148,6 +142,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+
     private void sendUserToSetupActivity() {
         Intent setupIntent = new Intent(RegisterActivity.this, SetupActivity.class);
         setupIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -155,4 +150,40 @@ public class RegisterActivity extends AppCompatActivity {
         finish();
 
     }
+
+    /*
+     private void saveToken(){
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            //Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String deviceToken = task.getResult();
+
+                        String currentUserId = mAuth.getCurrentUser().getUid();
+
+                        //saves device token in firebase database
+                        rootRef.child("Users").child(currentUserId).child("device_token")
+                                .setValue(deviceToken)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(RegisterActivity.this, "You are logged in Successfully!", Toast.LENGTH_SHORT).show();
+                                            loadingBar.dismiss();
+                                            SendUserToMainActivity();
+                                        }
+                                    }
+                                });
+
+                    }
+                });
+    }
+     */
+
 }
