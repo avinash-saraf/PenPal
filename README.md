@@ -1,8 +1,9 @@
 # PenPal
 A social media chat app for android that allows people to connect and meet with others who have similar interests/hobbies.
 A key feature of PenPal is that all users would be completely anonymous with regards to not setting a profile photo and biography. This would help create more ‘authentic’ matches based purely on similarity in hobbies. <br>
+
 ### **Development is still in progress** <br>
-Some features have not been implemented yet. For more details on those features, read "Features yet to be Implemented".
+See "Features yet to be implemented" for the features that have not been implemented yet.
 
 ## Features
 - A user can sign-up/login using email adress or a mobile number.
@@ -13,7 +14,8 @@ Some features have not been implemented yet. For more details on those features,
 - A user can see if his contacts are online in the private chat page. If they are not online, the last time the contact was online will be displayed.
 - A user can find all his contacts in the contacts tab, and remove contacts as well.
 
-## Feature Implementation
+## Implementation
+The following is how some of the most important parts of the app was implemented.
 - Sign-Up/Login using email address or a mobile number using firebase authentication as the backend.
 - Selection of interests/hobbies
   - TabLayout activity with ViewPager2 and SectionsPagerAdapter. A placeholder fragment with RecyclerView and PageViewModel is used for each different category of interests/hobbies to minimize code. Categories -> Indoor, Outdoor and Academic. All the hobbies of each category are saved locally in .txt files (hobby name and image url), retrieved and displayed in Cards using RecyclerView.
@@ -22,13 +24,18 @@ Some features have not been implemented yet. For more details on those features,
   - A check mark is also shown when the user selects a particular hobby. A floating action button appears when the user removes a particular hobby, allowing the user to undo that action.
 - Main Activity/Page
   - BottomNavigationView using fragments for displaying Chats, adding a new contact, displaying all contacts, and displaying incoming/outgoing chat requests.
-- Private chatting
-  - Messages sent b/w two users by saving each message on Firebase Realtime Database for each user (messages node -> sender user's unique id -> reciever user's unique id) and displaying using RecyclerView. Automatic scroll to last message sent in the chat activity.
+- Private chat
+  - Messages sent b/w two users by saving each message on Firebase Realtime Database for each user (messages node -> sender/reciever user's unique id -> reciever/sender user's unique id) and displaying using RecyclerView. Automatic scroll to last message sent in the chat activity.
   - Images can be sent as well. Images are displayed using url of image location in Firebase Storage. Images are compressed to 30% quality before saving in Firebase Storage.
-  - Online Status/Last time seen of reciever is displayed as well.
+  - State (online/last time seen) of the reciever user will be displayed below their name in the private chat activity
+  - Layout is auto-scrolled to the latest message.
+  - All the contacts user has chatted with will be displayed on the "Chats" Tab.
+  - Last message sent between users in private chat can be seen below the reciever user's name on the home page.
 - Adding New Contacts
   - Each user node is iterated through from the start, user having atleast one hobby in common is selected, and chat request is sent to the same user. Provided that the user is not the same user or already added as a contact.
   - If no user with similar hobby is found, search using each category of interests/hobby is performed and user is selected. 
   - Each contact is displayed in the contacts page using FirebaseRecyclerView. <br>
+
+
 ### Features yet to be implemented
-- Interests/hobbies in the 'selected' tab can be removed directly without navigating and deleting from the other tabs.
+- Adding new contacts
