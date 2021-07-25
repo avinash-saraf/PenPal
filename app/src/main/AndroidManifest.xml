@@ -61,7 +61,6 @@
         <activity
             android:name=".welcome.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ChatsFragment" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />

@@ -60,6 +60,7 @@ public class PlaceholderFragment extends Fragment {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private String currentUser = mAuth.getCurrentUser().getUid();
     private DatabaseReference interestsRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUser).child("interests");
+    private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
   //  private final ArrayList<String> selectedInterests = new ArrayList<>();
     //private boolean alreadyExists = false;
 
@@ -193,6 +194,8 @@ public class PlaceholderFragment extends Fragment {
                                 Log.println(Log.ASSERT, "addInterests", "added successfully");
                                 Snackbar.make(root, "Interest Added" ,Snackbar.LENGTH_SHORT)
                                         .setAction("No Action", null).show();
+                                rootRef.child("Interests").child(interest.getmInterestName()).child(currentUser);
+
                             } else{
                                 Log.println(Log.ASSERT, "addInterests", "error occured");
                                 Snackbar.make(root, "Error Occurred: " + task.getException().getMessage(),Snackbar.LENGTH_SHORT)
@@ -213,6 +216,7 @@ public class PlaceholderFragment extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
+                                        rootRef.child("Interests").child(interest.getmInterestName()).child(currentUser).removeValue();
                                         Snackbar.make(root, "Interest Deselected" ,Snackbar.LENGTH_SHORT)
                                                 .setAction("UNDO", new View.OnClickListener() {
                                                     @Override

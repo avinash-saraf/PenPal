@@ -19,8 +19,14 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_search, container, false);
-
+        
         findButton = root.findViewById(R.id.find_penpal_button);
+        findButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         return root;
     }
