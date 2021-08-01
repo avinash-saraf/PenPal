@@ -2,9 +2,6 @@
 A social media chat app for android that allows people to connect and meet with others who have similar interests/hobbies.
 A key feature of PenPal is that all users would be completely anonymous with regards to not setting a profile photo and biography. This would help create more ‘authentic’ matches based purely on similarity in hobbies. <br>
 
-### **Development is still in progress** <br>
-See "Features yet to be implemented" for the features that have not been implemented yet.
-
 ## Features
 - A user can sign-up/login using email adress or a mobile number.
 - A user can select his interests/hobbies from a comprehensive list of the same, by swiping right to select the interests and swiping left to deselect the interests. The user's chosen interests can be edited easily. All the users selected interests/hobbies are displayed. Currently, users can remove their selected interests by navigating to that particular interest under the specific category and swiping left.
@@ -32,10 +29,9 @@ The following is how some of the most important parts of the app was implemented
   - All the contacts user has chatted with will be displayed on the "Chats" Tab.
   - Last message sent between users in private chat can be seen below the reciever user's name on the home page.
 - Adding New Contacts
-  - Each user node is iterated through from the start, user having atleast one hobby in common is selected, and chat request is sent to the same user. Provided that the user is not the same user or already added as a contact.
-  - If no user with similar hobby is found, search using each category of interests/hobby is performed and user is selected. 
+  - When a user selects a hobby/interest, their unique id is saved under Interests > interest type (indoor/outdoor/academic) > Interest Name(Ex: acting/acrobatics)
+  - To add a new contact, one hobby/interest of the user is selected at random. Check if the user's interest was selected by other app users. If true, randomly choose another user who is not saved in the current user's contact list, and send friend request. In case there are no other app users with the same interest - which will not happen if the userbase is large enough - request user to try search feature again or add a popular interest to their list.
   - Each contact is displayed in the contacts page using FirebaseRecyclerView. <br>
 
 
-### Features yet to be implemented
-- Adding new contacts
+
