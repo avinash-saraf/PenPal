@@ -191,7 +191,7 @@ public class RequestsFragment extends Fragment {
                                         final String requestUserStatus = dataSnapshot.child("status").getValue().toString();
 
                                         requestsViewHolder.userName.setText(requestUserName);
-                                        requestsViewHolder.userStatus.setText("you have sent a request to" + requestUserName);
+                                        requestsViewHolder.userStatus.setText("You have sent a request to " + requestUserName);
 
                                         requestsViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                                             @Override
@@ -215,7 +215,7 @@ public class RequestsFragment extends Fragment {
                                                                             @Override
                                                                             public void onComplete(@NonNull Task<Void> task) {
                                                                                 if(task.isSuccessful()){
-                                                                                    Toast.makeText(getContext(), "you have cancelled the chat request", Toast.LENGTH_SHORT).show();
+                                                                                    Toast.makeText(getContext(), "You have cancelled the chat request", Toast.LENGTH_SHORT).show();
 
                                                                                 }
                                                                             }

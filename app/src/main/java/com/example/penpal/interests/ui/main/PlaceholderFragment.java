@@ -194,7 +194,7 @@ public class PlaceholderFragment extends Fragment {
                                 Log.println(Log.ASSERT, "addInterests", "added successfully");
                                 Snackbar.make(root, "Interest Added" ,Snackbar.LENGTH_SHORT)
                                         .setAction("No Action", null).show();
-                                rootRef.child("Interests").child(interest.getmInterestName()).child(currentUser);
+                                rootRef.child("Interests").child(interest.getmInterestType()).child(interest.getmInterestName()).child(currentUser).setValue(currentUser);
 
                             } else{
                                 Log.println(Log.ASSERT, "addInterests", "error occured");
@@ -216,7 +216,7 @@ public class PlaceholderFragment extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        rootRef.child("Interests").child(interest.getmInterestName()).child(currentUser).removeValue();
+                                        rootRef.child("Interests").child(interest.getmInterestType()).child(interest.getmInterestName()).child(currentUser).removeValue();
                                         Snackbar.make(root, "Interest Deselected" ,Snackbar.LENGTH_SHORT)
                                                 .setAction("UNDO", new View.OnClickListener() {
                                                     @Override

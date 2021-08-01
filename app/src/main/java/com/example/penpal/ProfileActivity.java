@@ -235,7 +235,10 @@ public class ProfileActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
-
+                                                sendMessageRequestButton.setEnabled(true);
+                                                currentState = "request_sent";
+                                                sendMessageRequestButton.setText("Cancel Chat Request");
+/*
                                                 HashMap<String, String> chatNotificationMap = new HashMap<>();
                                                 chatNotificationMap.put("from", senderUserId);
                                                 chatNotificationMap.put("type", "request");
@@ -251,7 +254,7 @@ public class ProfileActivity extends AppCompatActivity {
                                                                 }
                                                             }
                                                         });
-
+*/
 
                                             }
                                         }
