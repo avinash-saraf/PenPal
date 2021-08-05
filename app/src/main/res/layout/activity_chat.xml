@@ -12,11 +12,6 @@
         layout="@layout/app_bar_layout" />
 
 
-    <include
-        android:id="@+id/chat_bar_layout"
-        layout="@layout/app_bar_layout" />
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/messages_list_users"
         android:layout_width="match_parent"

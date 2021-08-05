@@ -36,9 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
     private String recieverUserId,senderUserId, currentState;
 
     private TextView userProfileName, userProfileStatus;
-    private Button sendMessageRequestButton, declineMessageRequestButton, viewInterestsButton;
-
-    private ImageView displayPic;
+    private Button sendMessageRequestButton, declineMessageRequestButton, viewInterestsButton, chatButton;
 
     private DatabaseReference userRef, chatRequestRef, contactsRef, notificationRef;
     private FirebaseAuth mAuth;
@@ -62,9 +60,8 @@ public class ProfileActivity extends AppCompatActivity {
         sendMessageRequestButton = findViewById(R.id.send_message_request_button);
         declineMessageRequestButton = findViewById(R.id.decline_message_request_button);
         viewInterestsButton = findViewById(R.id.profile_view_interests);
+        chatButton = findViewById(R.id.chatButton);
         currentState = "new";
-
-        displayPic = findViewById(R.id.profile_display_pic);
 
         viewInterestsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,51 +72,20 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        RetrieveUserInfo();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        Context ctx = this;
-
-        userRef.child(recieverUserId).child("interests").limitToLast(1).addChildEventListener(new ChildEventListener() {
+        chatButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                if(snapshot.exists()){
-                    Interest interest = snapshot.getValue(Interest.class);
-                    String imageLink = interest.getmImageLink();
+            public void onClick(View v) {
+                Intent chatIntent = new Intent(ProfileActivity.this, ChatActivity.class);
 
-                    Glide.with(ctx).load(imageLink).fitCenter().placeholder(R.drawable.profile_placeholder_image).into(displayPic);
-
-                }
-                else {
-                    Glide.with(ctx).load(R.drawable.profile_placeholder_image).centerCrop().placeholder(R.drawable.profile_placeholder_image).into(displayPic);
-                }
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                //sending user id and name to chat activity
+                chatIntent.putExtra("visit_user_id", recieverUserId);
+                chatIntent.putExtra("visit_user_name", userProfileName.getText());
+                startActivity(chatIntent);
 
             }
         });
 
+        RetrieveUserInfo();
     }
 
     private void RetrieveUserInfo() {
@@ -130,9 +96,9 @@ public class ProfileActivity extends AppCompatActivity {
                 if(dataSnapshot.exists()){
                     String userName = dataSnapshot.child("displayname").getValue().toString();
                     String userStatus = dataSnapshot.child("status").getValue().toString();
-
                     userProfileName.setText(userName);
                     userProfileStatus.setText(userStatus);
+
 
                     ManageChatRequests();
                 }
@@ -160,6 +126,7 @@ public class ProfileActivity extends AppCompatActivity {
                         sendMessageRequestButton.setText("Accept Chat Request");
                         sendMessageRequestButton.setEnabled(true);
 
+                        declineMessageRequestButton.setText("Decline Chat Request");
                         declineMessageRequestButton.setVisibility(View.VISIBLE);
                         declineMessageRequestButton.setEnabled(true);
 
@@ -178,6 +145,8 @@ public class ProfileActivity extends AppCompatActivity {
                             if(dataSnapshot.hasChild(recieverUserId)){
                                 currentState = "friends";
                                 sendMessageRequestButton.setText("Remove Contact");
+
+                                chatButton.setVisibility(View.VISIBLE);
                             }
                         }
 
@@ -295,6 +264,8 @@ public class ProfileActivity extends AppCompatActivity {
                                                                                      currentState = "friends";
                                                                                      sendMessageRequestButton.setText("Remove Contact");
 
+                                                                                     chatButton.setVisibility(View.VISIBLE);
+
                                                                                      declineMessageRequestButton.setVisibility(View.INVISIBLE);
                                                                                      declineMessageRequestButton.setEnabled(false);
                                                                                     }
@@ -353,7 +324,9 @@ public class ProfileActivity extends AppCompatActivity {
                                             if(task.isSuccessful()){
                                                 sendMessageRequestButton.setEnabled(true);
                                                 currentState = "new";
-                                                sendMessageRequestButton.setText("Chat");
+                                                sendMessageRequestButton.setText("Send Chat Request");
+
+                                                chatButton.setVisibility(View.INVISIBLE);
 
                                                 declineMessageRequestButton.setVisibility(View.INVISIBLE);
                                                 declineMessageRequestButton.setEnabled(false);

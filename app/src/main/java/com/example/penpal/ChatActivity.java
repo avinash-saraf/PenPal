@@ -109,7 +109,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CharSequence options[] = new CharSequence[] {
-                    "Images", "PDF Files", "Ms Word Files"
+                    "Images"
                 };
                 AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
                 builder.setTitle("Select File");
@@ -123,17 +123,14 @@ public class ChatActivity extends AppCompatActivity {
                             intent.setType("image/*");
                             startActivityForResult(intent.createChooser(intent, "Select Image"), 438);
                         }
-                        if(which == 1){
-                            checker = "pdf";
-                        }
-                        if(which == 2){
-                            checker = "docx";
-                        }
                     }
                 });
                builder.show();
             }
         });
+
+
+
     }
 
     private void InitializeControllers() {
@@ -318,6 +315,7 @@ public class ChatActivity extends AppCompatActivity {
                 });
     }
 
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -365,6 +363,12 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        messagesList.clear();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         messagesList.clear();
     }
 
