@@ -18,7 +18,7 @@ Application can be downloaded via the url: https://github.com/avinash-saraf/PenP
 
 ## Implementation
 The following is how some of the most important parts of the app was implemented.
-- Sign-Up/Login using email address or a mobile number using firebase authentication as the backend.
+- Sign-Up/Login using email address or a mobile number using firebase authentication as the backend.  Unique id generated for each user account by FirebaseAuth is used to save user info (such as account details, and messages sent) in Firebase Realtime Database. (user's node is set as unique id)
 - Selection of interests/hobbies
   - TabLayout activity with ViewPager2 and SectionsPagerAdapter. A placeholder fragment with RecyclerView and PageViewModel is used for each different category of interests/hobbies to minimize code. Categories -> Indoor, Outdoor and Academic. All the hobbies of each category are saved locally in .txt files (hobby name and image url), retrieved and displayed in Cards using RecyclerView.
   - A separate fragment shows the interests already selected using FirebaseRecyclerView.
