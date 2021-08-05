@@ -2,6 +2,11 @@
 A social media chat app for android that allows people to connect and meet with others who have similar interests/hobbies.
 A key feature of PenPal is that all users would be completely anonymous with regards to not setting a profile photo and biography. This would help create more ‘authentic’ matches based purely on similarity in hobbies. <br>
 
+## Download and Installation
+### APK
+Application can be downloaded via the url: https://github.com/avinash-saraf/PenPal/releases/download/v1.0.0/PenPalApp.apk
+
+
 ## Features
 - A user can sign-up/login using email adress or a mobile number.
 - A user can select his interests/hobbies from a comprehensive list of the same, by swiping right to select the interests and swiping left to deselect the interests. The user's chosen interests can be edited easily. All the users selected interests/hobbies are displayed. Currently, users can remove their selected interests by navigating to that particular interest under the specific category and swiping left.
