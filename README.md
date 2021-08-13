@@ -4,16 +4,17 @@ A key feature of PenPal is that all users would be completely anonymous with reg
 
 ## Download and Installation
 ### APK
-Application can be downloaded via the url: https://github.com/avinash-saraf/PenPal/releases/download/v1.0.0/PenPalApp.apk <br>
-Please note: 'find friends' feature (in overflow menu) is ONLY for testing purposes and is not part of the actual app.
+Application can be downloaded via the url: <br>
+https://github.com/avinash-saraf/PenPal/releases/download/v1.0.0/PenPalApp.apk <br> <br>
+Please note: 'find friends' feature (overflow menu) in this apk is ONLY for testing purposes and is not part of the actual app.
 
 
 ## Features
 - A user can sign-up/login using email adress or a mobile number.
 - A user can select his interests/hobbies from a comprehensive list of the same, by swiping right to select the interests and swiping left to deselect the interests. The user's chosen interests can be edited easily. All the users selected interests/hobbies are displayed. Currently, users can remove their selected interests by navigating to that particular interest under the specific category and swiping left.
-- A user can connect and private chat with other users who share his interests/hobbies.
+- A user can send a chat request to other users who share his/her interests/hobbies.
 - A user can accept or ignore an incoming chat request.
-- A user can private chat by sending text messages and images.
+- A user can private chat (by sending text messages and images) with contacts.
 - A user can see if his contacts are online in the private chat page. If they are not online, the last time the contact was online will be displayed.
 - A user can find all his contacts in the contacts tab, and remove contacts as well.
 
@@ -39,5 +40,21 @@ The following is how some of the most important parts of the app was implemented
   - To add a new contact, one hobby/interest of the user is selected at random. Check if the user's interest was selected by other app users. If true, randomly choose another user who is not saved in the current user's contact list, and send friend request. In case there are no other app users with the same interest - which will not happen if the userbase is large enough - request user to try search feature again or add a popular interest to their list.
   - Each contact is displayed in the contacts page using FirebaseRecyclerView. <br>
 
-
+## Screenshots
+  Note: Due to resizing, the images may not reflect the true quality (for that, click on the images to open them in a new tab)<br><br>
+  - Sign-in <br> <br>
+    <img src="https://user-images.githubusercontent.com/82901399/129348939-0a110a0a-4b77-4e0d-90fe-f0e85b485d6c.png" alt="Main Sign-In Page" width="378" height="647">  <img src="https://user-images.githubusercontent.com/82901399/129348949-817d17e8-a763-4c85-9311-a6a7c70494d4.png" alt="Email Sign-in" width="378" height="647"> 
+    <img src="https://user-images.githubusercontent.com/82901399/129348954-82ca0433-1df0-4f3d-82de-77c5d1b43aed.png" alt="Phone sign-in" width="378" height="647">
+    <img src="https://user-images.githubusercontent.com/82901399/129348975-304a3dc6-53bb-4fa8-b4bd-5d9cc8368053.png" alt="Phone sign-in" width="378" height="647"> <br> <br>
+  - Chats <br> <br>
+    <img src="https://user-images.githubusercontent.com/82901399/129350151-facb6f16-0120-4863-b7c6-3e07060882a8.png" alt="Chats Tab" width="378" height="647"> <img src="https://user-images.githubusercontent.com/82901399/129353205-4fd64a2b-f88d-4153-8b30-36e2e7dd50a7.png" alt="Chat Activity" width="378" height="647"> <br> <br>
+  - Find PenPal <br> <br>
+    <img src="https://user-images.githubusercontent.com/82901399/129353392-5f3e438e-297a-429c-9b87-dbaf3f69020b.png" alt="Meet tab" width="378" height="647"> <img src="https://media.giphy.com/media/Kbt1YyefLtdTRxm4tS/giphy.gif" alt="Find PenPal Gif" width="378" height="647"> <br> <br> 
+  - Account Settings and Editing Interests/Hobbies <br> <br>
+    <img src="https://user-images.githubusercontent.com/82901399/129353608-b7d164d3-49b3-4182-877d-24e66b9e1238.png" alt="Settings Activity" width="378" height="647">
+    <img src="https://user-images.githubusercontent.com/82901399/129353627-aacf38f3-585c-42f0-b846-096a3bb78610.png" alt="Interests Page" width="378" height="647"> <br> <br>
+    Adding and removing interest <br> <br>
+    <img src="https://media.giphy.com/media/pbNQuq2O3avLZ3zFTe/giphy.gif" alt="Interests Page" width="378" height="647"> <br> <br>
+  - Viewing contacts
+    
 
