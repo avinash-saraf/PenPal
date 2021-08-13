@@ -48,13 +48,16 @@ The following is how some of the most important parts of the app was implemented
     <img src="https://user-images.githubusercontent.com/82901399/129348975-304a3dc6-53bb-4fa8-b4bd-5d9cc8368053.png" alt="Phone sign-in" width="378" height="647"> <br> <br>
   - Chats <br> <br>
     <img src="https://user-images.githubusercontent.com/82901399/129350151-facb6f16-0120-4863-b7c6-3e07060882a8.png" alt="Chats Tab" width="378" height="647"> <img src="https://user-images.githubusercontent.com/82901399/129353205-4fd64a2b-f88d-4153-8b30-36e2e7dd50a7.png" alt="Chat Activity" width="378" height="647"> <br> <br>
-  - Find PenPal <br> <br>
-    <img src="https://user-images.githubusercontent.com/82901399/129353392-5f3e438e-297a-429c-9b87-dbaf3f69020b.png" alt="Meet tab" width="378" height="647"> <img src="https://media.giphy.com/media/Kbt1YyefLtdTRxm4tS/giphy.gif" alt="Find PenPal Gif" width="378" height="647"> <br> <br> 
+  - Find PenPal (GIF) <br> <br>
+    <img src="https://media.giphy.com/media/Kbt1YyefLtdTRxm4tS/giphy.gif" alt="Find PenPal Gif" width="378" height="647"> <br> <br> 
   - Account Settings and Editing Interests/Hobbies <br> <br>
     <img src="https://user-images.githubusercontent.com/82901399/129353608-b7d164d3-49b3-4182-877d-24e66b9e1238.png" alt="Settings Activity" width="378" height="647">
     <img src="https://user-images.githubusercontent.com/82901399/129353627-aacf38f3-585c-42f0-b846-096a3bb78610.png" alt="Interests Page" width="378" height="647"> <br> <br>
-    Adding and removing interest <br> <br>
+    Adding and removing interest (GIF) <br> <br>
     <img src="https://media.giphy.com/media/pbNQuq2O3avLZ3zFTe/giphy.gif" alt="Interests Page" width="378" height="647"> <br> <br>
-  - Viewing contacts
+  - Viewing contacts <br> <br>
+    <img src="https://user-images.githubusercontent.com/82901399/129358150-e5cf4a1b-6293-4c9b-ac4c-d4a4ac40cca8.png" alt="Contacts Tab" width="378" height="647"> <img src="https://user-images.githubusercontent.com/82901399/129358158-8f62f66d-23cd-41bc-a3f9-fedd809804df.png" alt="Profile Page" width="378" height="647"> <br> <br>
+    Clicking "View Interests" <br> <br>
+    <img src="https://user-images.githubusercontent.com/82901399/129358164-8a50e50e-ea46-42c7-a47a-32159a352e1f.png" alt="View Interests" width="378" height="647">
     
 
