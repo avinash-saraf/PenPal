@@ -4,7 +4,8 @@ A key feature of PenPal is that all users would be completely anonymous with reg
 
 ## Download and Installation
 ### APK
-Application can be downloaded via the url: https://github.com/avinash-saraf/PenPal/releases/download/v1.0.0/PenPalApp.apk
+Application can be downloaded via the url: https://github.com/avinash-saraf/PenPal/releases/download/v1.0.0/PenPalApp.apk <br>
+Please note: 'find friends' feature (in overflow menu) is ONLY for testing purposes and is not part of the actual app.
 
 
 ## Features
