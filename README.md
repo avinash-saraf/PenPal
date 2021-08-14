@@ -2,11 +2,15 @@
 A social media chat app for android that allows people to connect and meet with others who have similar interests/hobbies.
 A key feature of PenPal is that all users would be completely anonymous with regards to not setting a profile photo and biography. This would help create more ‘authentic’ matches based purely on similarity in hobbies. <br>
 
-## Download and Installation
+## Download and Installation 
 ### APK
 Application can be downloaded via the url: <br>
 https://github.com/avinash-saraf/PenPal/releases/download/v1.0.0/PenPalApp.apk <br> <br>
-Please note: 'find friends' feature (overflow menu) in this apk is ONLY for testing purposes and is not part of the actual app.
+__Please note: 'find friends' feature (overflow menu) in this version is ONLY for testing purposes and is not a feature the actual app.__
+
+### Open in android studio
+ 1. __Clone the repository__ using `git clone https://github.com/avinash-saraf/PenPal.git` OR __Download ZIP__ of this project (under the 'Code' button on this page) and unzip to a folder.
+ 2. In android studio, go to __File -> Import Project__ then choose this project folder and then click __Next -> Finish__.
 
 
 ## Features
