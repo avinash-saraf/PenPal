@@ -45,7 +45,7 @@ The following is how some of the most important parts of the app was implemented
   - Each contact is displayed in the contacts page using FirebaseRecyclerView. <br>
 
 ## Screenshots
-  Note: Due to resizing, the images may not reflect the best quality (to view the UI in high-quality, download the apk and use the app!)<br><br>
+  __Note: Due to resizing, the images may not reflect the best quality (to view the UI in high-quality, download the apk and use the app!)__<br><br>
   - Sign-in <br> <br> 
     <img src="https://user-images.githubusercontent.com/82901399/129348939-0a110a0a-4b77-4e0d-90fe-f0e85b485d6c.png" alt="Main Sign-In Page" width="378" height="647">  <img src="https://user-images.githubusercontent.com/82901399/129348949-817d17e8-a763-4c85-9311-a6a7c70494d4.png" alt="Email Sign-in" width="378" height="647"> 
     <img src="https://user-images.githubusercontent.com/82901399/129348954-82ca0433-1df0-4f3d-82de-77c5d1b43aed.png" alt="Phone sign-in" width="378" height="647">
