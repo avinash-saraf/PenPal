@@ -46,10 +46,7 @@ The following is how some of the most important parts of the app was implemented
 
 ## Screenshots
   __Note: Due to resizing, the images may not reflect the best quality (to view the UI in high-quality, download the apk and use the app!)__<br><br>
-  - Sign-in <br> <br> 
-    <img src="https://user-images.githubusercontent.com/82901399/129348939-0a110a0a-4b77-4e0d-90fe-f0e85b485d6c.png" alt="Main Sign-In Page" width="378" height="647">  <img src="https://user-images.githubusercontent.com/82901399/129348949-817d17e8-a763-4c85-9311-a6a7c70494d4.png" alt="Email Sign-in" width="378" height="647"> 
-    <img src="https://user-images.githubusercontent.com/82901399/129348954-82ca0433-1df0-4f3d-82de-77c5d1b43aed.png" alt="Phone sign-in" width="378" height="647">
-    <img src="https://user-images.githubusercontent.com/82901399/129348975-304a3dc6-53bb-4fa8-b4bd-5d9cc8368053.png" alt="Phone sign-in" width="378" height="647"> <br> <br>
+
   - Chats <br> <br>
     <img src="https://user-images.githubusercontent.com/82901399/129350151-facb6f16-0120-4863-b7c6-3e07060882a8.png" alt="Chats Tab" width="378" height="647"> <img src="https://user-images.githubusercontent.com/82901399/129353205-4fd64a2b-f88d-4153-8b30-36e2e7dd50a7.png" alt="Chat Activity" width="378" height="647"> <br> <br>
   - Find PenPal (GIF) <br> <br>
