@@ -1,12 +1,12 @@
 # PenPal
-A social media chat app for android that allows people to connect and meet with others who have similar interests/hobbies.
+A  chat app for android that connects people with mutual interests/hobbies. <br> <br>
 A key feature of PenPal is that all users would be completely anonymous with regards to not setting a profile photo and biography. This would help create more ‘authentic’ matches based purely on similarity in hobbies. <br>
 
 ## Download and Installation 
 ### APK
 Application can be downloaded via the url: <br>
 https://github.com/avinash-saraf/PenPal/releases/download/v1.0.0/PenPalApp.apk <br> <br>
-__Please note: 'find friends' feature (overflow menu) in this version is ONLY for testing purposes and is not a feature the actual app.__
+__Please note: 'find friends' feature to view all users (overflow menu) in this version is ONLY for testing purposes and is not a feature the actual app.__
 
 ### Open in android studio
  1. __Clone the repository__ using `git clone https://github.com/avinash-saraf/PenPal.git` OR __Download ZIP__ of this project (under the 'Code' button on this page) and unzip to a folder.
@@ -17,10 +17,10 @@ __Please note: 'find friends' feature (overflow menu) in this version is ONLY fo
 - A user can sign-up/login using email adress or a mobile number.
 - A user can select his interests/hobbies from a comprehensive list of the same, by swiping right to select the interests and swiping left to deselect the interests. The user's chosen interests can be edited easily. All the users selected interests/hobbies are displayed. Currently, users can remove their selected interests by navigating to that particular interest under the specific category and swiping left.
 - A user can send a chat request to other users who share his/her interests/hobbies.
-- A user can accept or ignore an incoming chat request.
+- A user can accept an incoming chat request to become a contact or decline the request.
+- A user can find all his contacts in the contacts tab, and remove contacts as well.
 - A user can private chat (by sending text messages and images) with contacts.
 - A user can see if his contacts are online in the private chat page. If they are not online, the last time the contact was online will be displayed.
-- A user can find all his contacts in the contacts tab, and remove contacts as well.
 
 ## Implementation
 The following is how some of the most important parts of the app was implemented.
@@ -31,7 +31,7 @@ The following is how some of the most important parts of the app was implemented
   - Interests/hobbies can be selected by swiping right, and deselected by swiping left on the respective hobby (technically a card using CardView). The selected hobbies then get added to FireBaseDatabase under the specific user's node (set as the unique id instantiated by firebase auth) in the 'interests' node. Similar for deselection of hobbies.
   - A check mark is also shown when the user selects a particular hobby. A floating action button appears when the user removes a particular hobby, allowing the user to undo that action.
 - Main Activity/Page
-  - BottomNavigationView using fragments for displaying Chats, adding a new contact, displaying all contacts, and displaying incoming/outgoing chat requests.
+  - BottomNavigationView using fragments for displaying chats ('Home'), finding a penpal and auto sending chat request ('Meet'), displaying all contacts ('Contacts'), and displaying incoming/outgoing chat requests ('Chat Requests').
 - Private chat
   - Messages sent b/w two users by saving each message on Firebase Realtime Database for each user (messages node -> sender/reciever user's unique id -> reciever/sender user's unique id) and displaying using RecyclerView. Automatic scroll to last message sent in the chat activity.
   - Images can be sent as well. Images are displayed using url of image location in Firebase Storage. Images are compressed to 30% quality before saving in Firebase Storage.
@@ -45,8 +45,8 @@ The following is how some of the most important parts of the app was implemented
   - Each contact is displayed in the contacts page using FirebaseRecyclerView. <br>
 
 ## Screenshots
-  Note: Due to resizing, the images may not reflect the true quality (for that, click on the images to open them in a new tab)<br><br>
-  - Sign-in <br> <br>
+  Note: Due to resizing, the images may not reflect the best quality (to view the UI in high-quality, download the apk and use the app!)<br><br>
+  - Sign-in <br> <br> 
     <img src="https://user-images.githubusercontent.com/82901399/129348939-0a110a0a-4b77-4e0d-90fe-f0e85b485d6c.png" alt="Main Sign-In Page" width="378" height="647">  <img src="https://user-images.githubusercontent.com/82901399/129348949-817d17e8-a763-4c85-9311-a6a7c70494d4.png" alt="Email Sign-in" width="378" height="647"> 
     <img src="https://user-images.githubusercontent.com/82901399/129348954-82ca0433-1df0-4f3d-82de-77c5d1b43aed.png" alt="Phone sign-in" width="378" height="647">
     <img src="https://user-images.githubusercontent.com/82901399/129348975-304a3dc6-53bb-4fa8-b4bd-5d9cc8368053.png" alt="Phone sign-in" width="378" height="647"> <br> <br>
