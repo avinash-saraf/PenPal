@@ -45,7 +45,6 @@ The following is how some of the most important parts of the app was implemented
   - Each contact is displayed in the contacts page using FirebaseRecyclerView. <br>
 
 ## Screenshots
-  __Note: Due to resizing, the images may not reflect the best quality (to view the UI in high-quality, download the apk and use the app!)__<br><br>
 
   - Chats <br> <br>
     <img src="https://user-images.githubusercontent.com/82901399/129350151-facb6f16-0120-4863-b7c6-3e07060882a8.png" alt="Chats Tab" width="378" height="647"> <img src="https://user-images.githubusercontent.com/82901399/129353205-4fd64a2b-f88d-4153-8b30-36e2e7dd50a7.png" alt="Chat Activity" width="378" height="647"> <br> <br>
